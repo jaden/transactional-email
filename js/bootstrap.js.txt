@@ -1,0 +1,17 @@
+// For using with webpack...someday
+
+'use strict';
+
+// Styles
+require('../css/styles.css');
+
+require('rangeslider.js');
+require("bootstrap-webpack");
+require('angular');
+
+var appModule = require('./app');
+
+// This is instead of ng-app="appName" in HTML
+angular.element(document).ready(function () {  
+	angular.bootstrap(document, [appModule.name], {});
+});

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, user-scalable = no, maximum-scale = 1.0">
+	<title>Transactional Email Service Price Comparison Tool</title>
+    
+	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="components/rangeslider.js/dist/rangeslider.css">
+    
+    <link rel="stylesheet" href="styles.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="bundle.min.[hash].css"> -->
+    
+	<style>
+	[ng\:cloak], [ng-cloak], .ng-cloak {
+  		display: none !important;
+	}
+	</style>
+</head>
+<body ng-app="TransactEmailApp">
+
+<div class="container">
+
+	<div class="row">
+		<h2 class="text-center">Transactional Email Price Comparisons</h2>
+	</div>
+
+	<div class="row">
+	
+		<div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10" ng-controller="MainController">
+	
+			<label class="center-block text-center" for="monthly_emails">
+				<h2 ng-cloak>{{ config.emails_a_month | number }} Emails / Month </h2>
+			</label>
+            
+			<input type="range" min="1000" max="100000" step="1000" ng-cloak ng-model="config.emails_a_month" />
+			
+            <!--<input type="number" id="monthly_emails" ng-model="config.emails_a_month" ng-change="changeHandler(config.emails_a_month)" class="form-control" />-->
+
+			<ul ng-cloak="services" class="list-group">
+				<li ng-repeat="service in services | orderBy:config.predicate" class="list-group-item">
+					<a href="{{service.url}}">
+						<img ng-src="images/{{ service.image }}">
+					</a>
+					<a href="{{service.url}}">{{service.name}}</a> 
+					<span class="badge">{{calculate_price(service) | currency}} / month</span>
+					<!-- <small>{{service.notes}}</small> -->
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</div>
+
+<footer>
+	<p class="text-muted">
+		Created by <a href="http://dan.hersam.com/">Dan Hersam</a> with <a href="https://angularjs.org/">AngularJS</a>
+	</p>
+</footer>
+    
+<script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="components/angular/angular.min.js"></script>
+<script type="text/javascript" src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="components/rangeslider.js/dist/rangeslider.min.js"></script>
+
+<script src="js/all.min.js"></script>    
+<!-- <script type="text/javascript" src="bundle.min.[hash].js"></script> -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var $range = $('input[type=range]');
+
+		// Initialize
+		$range.rangeslider({
+			
+			polyfill: false,
+
+		});
+	});
+
+</script>
+
+</body>
+</html>
