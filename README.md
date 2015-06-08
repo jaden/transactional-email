@@ -1,10 +1,19 @@
-gulp to build for deployment, then copy everything in dist folder.
+# Price Comparison for Email Transaction Services
 
-gulp watch for development
+[The live site](http://dan.hersam.com/transactional-email/)
 
-Price comparisons of transactional email services
+## Initialize
 
-sendgrid
-mandrill
-mailgun
-amazon ses
+After checking out the repository, install Bower and NPM components.
+
+    bower install
+    npm install
+
+## Build
+
+`gulp` OR `gulp watch`
+
+## Deploy
+
+Copy the contents of the dist folder.
+
