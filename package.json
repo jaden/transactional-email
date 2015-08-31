@@ -5,7 +5,7 @@
     "del": "^1.1.1",
     "extract-text-webpack-plugin": "^0.8.0",
     "file-loader": "^0.8.3",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
     "gulp-concat-css": "^2.2.0",
     "gulp-html-replace": "^1.4.5",
