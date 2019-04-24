@@ -12,19 +12,19 @@ var del = require('del');
 
 var paths = {
   scripts: ['js/**/*.js'],
-  css: ['css/**/*.css']  
+  css: ['css/**/*.css']
 };
 
 var vendorCss = [
-    'components/bootstrap/dist/css/bootstrap.min.css',
-    'components/rangeslider.js/dist/rangeslider.css'
+  'components/bootstrap/dist/css/bootstrap.min.css',
+  'components/rangeslider.js/dist/rangeslider.css'
 ];
 
 var vendorJs = [
-    'components/jquery/dist/jquery.min.js',
-    'components/jquery/dist/jquery.min.map',
+  'components/jquery/dist/jquery.min.js',
+  'components/jquery/dist/jquery.min.map',
 	'components/angular/angular.min.js',
-    'components/angular/angular.min.js.map',
+  'components/angular/angular.min.js.map',
 	'components/bootstrap/dist/js/bootstrap.min.js',
 	'components/rangeslider.js/dist/rangeslider.min.js'
 ];
@@ -56,25 +56,25 @@ gulp.task('minify-css', ['clean'], function() {
 gulp.task('replace', ['scripts', 'minify-css'], function() {
   gulp.src('index.html')
     .pipe(htmlreplace({
-        'css': 'styles.min.css',
-        'js': 'js/all.min.js'
+      'css': 'styles.min.css',
+      'js': 'js/all.min.js'
     }))
     .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('copy-css', ['minify-css'], function() {
-    return gulp.src(vendorCss, {base: "."})
-        .pipe(gulp.dest('dist/'));
+  return gulp.src(vendorCss, {base: "."})
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('copy-js', ['scripts'], function() {
-    return gulp.src(vendorJs, {base: "."})
-        .pipe(gulp.dest('dist/'));
+  return gulp.src(vendorJs, {base: "."})
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('copy-images', ['clean'], function() {
-    return gulp.src('./images/**')
-      .pipe(gulp.dest('dist/images/'));
+  return gulp.src('./images/**')
+    .pipe(gulp.dest('dist/images/'));
 });
 
 // Rerun the task when a file changes
