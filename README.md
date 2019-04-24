@@ -2,6 +2,10 @@
 
 [The live site](http://dan.hersam.com/transactional-email/)
 
+## Development
+
+Open dist/index.html
+
 ## Initialize
 
 After checking out the repository, install Bower and NPM components.
@@ -15,5 +19,4 @@ After checking out the repository, install Bower and NPM components.
 
 ## Deploy
 
-Copy the contents of the dist folder.
-
+Copy the contents of the dist folder to the server
